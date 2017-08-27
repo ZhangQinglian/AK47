@@ -18,6 +18,7 @@ package com.zqlite.android.ak47
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.support.v7.app.AlertDialog
 
 /**
  * Created by scott on 2017/8/25.
@@ -33,3 +34,11 @@ fun SharedPreferences.save(func: SharedPreferences.Editor.()->Unit){
 fun SharedPreferences.Editor.set(pair: Pair<String,String>) = putString(pair.first,pair.second)
 
 fun Context.getSPString(name:String, key:String, default:String) = getSharedPreferences(name,Context.MODE_PRIVATE).getString(key,default)
+
+
+/********************************************** Dialog **********************************************/
+
+fun AlertDialog.Builder.show(func : AlertDialog.Builder.()->Unit){
+    func()
+    show()
+}
